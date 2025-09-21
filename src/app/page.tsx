@@ -5,9 +5,11 @@ import {
   signInWithGoogle,
   signInWithEmail,
   signUpWithEmail,
-  getCurrentUser
+  getCurrentUser,
+  getUserRole
 } from '@/lib/supabaseClient'
-import { LogIn, BookOpen, Mail, Lock } from 'lucide-react'
+import { LogIn, Mail, Lock } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 const Login: React.FC = () => {
   const router = useRouter()
@@ -17,20 +19,40 @@ const Login: React.FC = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState('')
 
-  useEffect(() => {
-    getCurrentUser().then(user => {
-      if (user) {
-        router.push('/Dashboard')
+  // Helper function to check user role and redirect accordingly
+  const checkUserRoleAndRedirect = async () => {
+    try {
+      const user = await getCurrentUser()
+      if (!user) return
+
+      const userRole = await getUserRole()
+      
+      if (userRole === 'admin') {
+        router.push('/Admindash')
+      } else {
+        router.push('/Home')
       }
-    })
+    } catch (error) {
+      console.error('Error checking user role:', error)
+      // Default to Home page if there's an error
+      router.push('/Home')
+    }
+  }
+
+  useEffect(() => {
+    // Check if user is already logged in and redirect accordingly
+    checkUserRoleAndRedirect()
   }, [router])
 
   const handleGoogleLogin = async () => {
     try {
       setLoading(true)
       setError('')
-      await signInWithGoogle()
-      // Redirect handled by Supabase
+      const result = await signInWithGoogle()
+      
+      // Note: For OAuth, the redirect happens automatically via the callback
+      // The actual role check will happen in the callback handler or on page load
+      
     } catch (error: Error | unknown) {
       console.error('Login error:', error)
       setError('Login failed. Please try again.')
@@ -53,14 +75,21 @@ const Login: React.FC = () => {
       if (isSignUp) {
         const { user } = await signUpWithEmail(email, password)
         if (user) {
-          router.push('/Dashboard')
+          // For sign up, switch to sign in mode
+          setIsSignUp(false)
+          setError('')
+          setEmail('')
+          setPassword('')
+          // Show success message instead of error
+          setError('Account created! Please check your email for verification, then sign in.')
         } else {
           setError('Please check your email for verification link')
         }
       } else {
         const { user } = await signInWithEmail(email, password)
         if (user) {
-          router.push('/Dashboard')
+          // Check user role and redirect accordingly
+          await checkUserRoleAndRedirect()
         }
       }
 
@@ -78,136 +107,122 @@ const Login: React.FC = () => {
 
   return (
     <div 
-      className="min-h-screen bg-gray-50 flex items-center justify-center p-4"
+      className="relative min-h-screen flex flex-col overflow-hidden"
       style={{ fontFamily: 'Courier New, monospace' }}
     >
-      <div className="w-full max-w-6xl border-4 border-black rounded-3xl bg-white p-8 flex">
-        {/* Left Side */}
-        <div className="flex-1 pr-8">
-          <div className="flex items-center mb-8">
-            <BookOpen size={64} className="mr-4" />
-            <h1 className="text-6xl font-bold" style={{ fontFamily: 'Brush Script MT, cursive' }}>
-              EduGo
-            </h1>
-          </div>
-          
-          <div className="space-y-4 text-lg">
-            <p>Your comprehensive learning companion for managing tasks, attending classes, and staying organized.</p>
-            <p>Track your progress with our intuitive calendar system.</p>
-            <p>Join virtual meetings, take notes, and never miss an assignment with EduGos smart notification system.</p>
-          </div>
+      {/* Animated Background */}
+      <motion.div
+        className="absolute inset-0"
+        initial={{ backgroundPosition: '0% 50%' }}
+        animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
+        transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+        style={{
+          backgroundImage: `url('/lightleak.png')`, // replace with your uploaded asset
+          backgroundSize: '200% 200%',
+          filter: 'blur(40px)',
+        }}
+      />
 
-          <div className="mt-16">
-            <div className="border-2 border-black rounded-lg p-4 bg-gray-50">
-              <p className="text-center text-sm">© 2025 EduGo - Empowering Education Through Technology</p>
-            </div>
-          </div>
-        </div>
+      {/* Overlay to enhance blur */}
+      <div className="absolute inset-0" />
 
-        {/* Right Side - Login */}
-        <div className="flex-1 pl-8 border-l-2 border-black">
-          <div className="border-2 border-black rounded-lg p-8 h-full flex flex-col justify-center">
-            <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold mb-4">
-                {isSignUp ? 'Create Account' : 'Welcome to EduGo'}
-              </h2>
-              <p className="text-gray-600 mb-6">
-                {isSignUp 
-                  ? 'Sign up to start your learning journey' 
-                  : 'Sign in to access your personalized learning dashboard'}
-              </p>
-              
-              {error && (
-                <div className="mb-4 p-3 border-2 border-red-300 rounded-lg bg-red-50 text-red-700">
-                  {error}
-                </div>
-              )}
-
-              <div className="space-y-6">
-                {/* Email/Password Form */}
-                <form onSubmit={handleEmailAuth} className="space-y-4">
-                  {!process.env.NEXT_PUBLIC_SUPABASE_URL && (
-                    <div className="p-3 border-2 border-yellow-300 rounded-lg bg-yellow-50 text-yellow-800 text-sm">
-                      <p className="font-bold">⚠️ Supabase Not Configured</p>
-                      <p>Please set up your Supabase credentials in the .env.local file to enable authentication.</p>
-                    </div>
-                  )}
-                  
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-                    <input
-                      type="email"
-                      placeholder="Email address"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      className="w-full pl-12 pr-4 py-3 border-2 border-black rounded-lg focus:outline-none focus:border-gray-600"
-                      disabled={loading}
-                    />
-                  </div>
-                  
-                  <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
-                    <input
-                      type="password"
-                      placeholder="Password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      className="w-full pl-12 pr-4 py-3 border-2 border-black rounded-lg focus:outline-none focus:border-gray-600"
-                      disabled={loading}
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    disabled={loading || !process.env.NEXT_PUBLIC_SUPABASE_URL}
-                    className="w-full p-4 border-2 border-black rounded-lg bg-black text-white hover:bg-gray-800 transition-colors disabled:opacity-50"
-                  >
-                    {loading ? 'Please wait...' : (isSignUp ? 'Sign Up' : 'Sign In')}
-                  </button>
-                </form>
-
-                <div className="relative">
-                  <div className="absolute inset-0 flex items-center">
-                    <div className="w-full border-t border-gray-300"></div>
-                  </div>
-                  <div className="relative flex justify-center text-sm">
-                    <span className="px-2 bg-white text-gray-500">or</span>
-                  </div>
-                </div>
-
-                <button
-                  onClick={handleGoogleLogin}
-                  disabled={loading || !process.env.NEXT_PUBLIC_SUPABASE_URL}
-                  className="w-full p-4 border-2 border-black rounded-lg bg-white hover:bg-gray-100 transition-colors flex items-center justify-center space-x-3 disabled:opacity-50"
-                >
-                  <LogIn size={20} />
-                  <span className="font-bold">Sign in with Google</span>
-                </button>
-
-                <div className="text-center">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setIsSignUp(!isSignUp)
-                      setError('')
-                      setEmail('')
-                      setPassword('')
-                    }}
-                    className="text-sm text-gray-600 hover:text-black underline"
-                  >
-                    {isSignUp 
-                      ? 'Already have an account? Sign in' 
-                      : "Don't have an account? Sign up"}
-                  </button>
-                </div>
-
-                <div className="text-sm text-gray-600">
-                  <p>By signing in, you agree to our Terms of Service and Privacy Policy</p>
-                </div>
+      {/* Main Content */}
+      <div className="flex flex-1 relative z-10">
+        
+        {/* Left - Sign in/Sign up */}
+        <div className="w-2/5 flex items-center justify-center p-8">
+          <div className="w-full max-w-md p-8 rounded-2xl  
+                          bg-white/30 backdrop-blur-2xl">
+            <h2 className="text-3xl font-bold mb-6 text-center">
+              {isSignUp ? 'Create Account' : 'Sign In'}
+            </h2>
+            {error && (
+              <div className={`mb-4 p-3 border-2 rounded-lg ${
+                error.includes('Account created') 
+                  ? 'border-green-300 bg-green-50 text-green-700'
+                  : 'border-red-300 bg-red-50 text-red-700'
+              }`}>
+                {error}
               </div>
+            )}
+            <form onSubmit={handleEmailAuth} className="space-y-4">
+              <div className="relative">
+                <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                <input
+                  type="email"
+                  placeholder="Email address"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="w-full pl-12 pr-4 py-3 border-2 border-black rounded-lg bg-white/50 focus:outline-none"
+                  disabled={loading}
+                />
+              </div>
+              <div className="relative">
+                <Lock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={20} />
+                <input
+                  type="password"
+                  placeholder="Password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full pl-12 pr-4 py-3 border-2 border-black rounded-lg bg-white/50 focus:outline-none"
+                  disabled={loading}
+                />
+              </div>
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full p-3 border-2 border-black rounded-lg bg-black text-white hover:bg-gray-800 disabled:opacity-50"
+              >
+                {loading ? 'Please wait...' : (isSignUp ? 'Sign Up' : 'Sign In')}
+              </button>
+            </form>
+
+            <div className="my-4 text-center text-sm">or</div>
+
+            <button
+              onClick={handleGoogleLogin}
+              disabled={loading}
+              className="w-full p-3 border-2 border-black rounded-lg bg-white/60 hover:bg-gray-100 flex items-center justify-center space-x-3 disabled:opacity-50"
+            >
+              <LogIn size={20} />
+              <span className="font-bold">Sign in with Google</span>
+            </button>
+
+            <div className="text-center mt-4">
+              <button
+                type="button"
+                onClick={() => {
+                  setIsSignUp(!isSignUp)
+                  setError('')
+                  setEmail('')
+                  setPassword('')
+                }}
+                className="text-sm text-gray-700 hover:text-black underline"
+                disabled={loading}
+              >
+                {isSignUp 
+                  ? 'Already have an account? Sign in' 
+                  : "Don't have an account? Sign up"}
+              </button>
             </div>
           </div>
         </div>
+
+        {/* Right - Resume Checker */}
+        <div className="w-3/5 flex items-center justify-center p-8">
+          <div className="w-full h-full p-8 flex flex-col">
+            <h1 className="text-6xl font-bold text-white text-center mb-8">Resume Checker</h1>
+            <div className="flex-1 p-6 rounded-xl  bg-white/40 backdrop-blur-xl">
+              <h2 className="text-xl font-bold mb-4">Description Title</h2>
+              <p className="text-gray-800">Random description blah blah blah</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Footer */}
+      <div className="p-4 border-t-2 bg-white/30 backdrop-blur-2xl text-center relative z-10">
+        Footer Component
       </div>
     </div>
   )

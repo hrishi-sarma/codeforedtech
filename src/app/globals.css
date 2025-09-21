@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #0a0a0a; /* Deep black for film aesthetic */
+  --foreground: #ffffff; /* White text for contrast */
 }
 
 @theme inline {
@@ -14,13 +14,78 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ffffff;
-    --foreground: #000000;
+    --background: #0a0a0a; /* Keep consistent dark theme */
+    --foreground: #ffffff;
   }
 }
 
+/* Enhanced body styles for film background */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  /* Ensure smooth animations */
+  scroll-behavior: smooth;
+}
+
+/* Performance optimization for animations */
+* {
+  box-sizing: border-box;
+}
+
+/* Hide scrollbar globally (optional, affects all scrollbars) */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+.no-scrollbar {
+  background: red !important;
+}
+
+/* Ensure proper layering for the animated background */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Make sure content has proper contrast against the animated background */
+main {
+  position: relative;
+  z-index: 10;
+}
+
+/* Ensure navbar stays above the background */
+nav {
+  position: relative;
+  z-index: 50;
+}
+
+/* Performance optimization for canvas animations */
+canvas {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Optional: Add a subtle overlay class for content that needs better readability */
+.content-overlay {
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(0.5px);
+}
+
+/* Text shadows for better readability against the light leak */
+.text-glow {
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Glass morphism styles that work well with the background */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass:hover {
+  background: rgba(255, 255, 255, 0.08);
 }

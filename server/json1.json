@@ -1,0 +1,80 @@
+{
+  "file": "resume.pdf",
+  "header": {
+    "name": "SHUBAM SARAWAGI"
+  },
+  "contact": {
+    "emails": [
+      "sarawagishubam@gmail.com"
+    ],
+    "phones": [
+      "+919163615663"
+    ],
+    "links": []
+  },
+  "sections": {
+    "shubam sarawagi": "+91 9163615663 ⋄ Kolkata, West Bengal\nsarawagishubam@gmail.com ⋄ LinkedIn Profile ⋄ GitHub Profile",
+    "education": "• GPA: 9.1/10\n• Relevant Coursework: Manufacturing Processes, Production Systems, Data Analytics in Manufacturing, Automotive Systems",
+    "skills": "Data Analysis Data Cleaning, Data Exploration, Business Value Extraction\nLanguages Python (Pandas, NumPy, Matplotlib), R, SQL\nTools Excel (Advanced), MySQL, Power BI\nSoft Skills Problem Solving, Communication, Teamwork",
+    "projects": "Manufacturing Data Quality Automation Jan 2023 – May 2023\nTechnologies: Python (Pandas), Excel, SQL\n• Built pipelines to clean and preprocess 100,000+ rows of manufacturing quality inspection data.\n• Automated anomaly detection in production batches, reducing manual inspection time by 45%.\n• Delivered insights on recurring defects that improved assembly line efficiency by 12%.\nAutomotive Production Data Analysis Aug 2022 – Dec 2022\nTechnologies: R, Python, Excel, Power BI\n• Analyzed 50,000+ automotive test records to identify correlations between design parameters and failures.\n• Designed dashboards to present KPIs to stakeholders including yield rate, downtime, and defect frequency.\n• Recommended process improvements that decreased defect rate by 8%.\nProduction Workflow Optimization Jan 2022 – Apr 2022\nTechnologies: Excel (Pivot Tables), Python\n• Modeled relationships among entities (machines, processes, outputs) using production log data.\n• Streamlined reporting workflows by automating Excel-based summaries for daily production meetings.",
+    "experience": "Tata Motors – Manufacturing Data Intern May 2022 – July 2022\n• Worked on cleaning and analyzing engine assembly data to identify inefficiencies in the production line.\n• Built Excel dashboards for real-time defect monitoring, improving response time by 30%.\nMetalco – Process Data Analyst Intern Jan 2022 – Mar 2022\n• Automated monthly reporting of 500+ production documents, reducing manual work by 70%.\n• Collaborated with engineers and data scientists to ensure business-ready insights from plant data.\nSociety of Automotive Engineers (SAE) – Data Lead Sep 2021 – May 2023",
+    "clubs": "• Analyzed performance data of SAE competition vehicles, correlating sensor data with test outcomes.\n• Presented insights to design and production teams, enabling data-driven design iterations.",
+    "certifications": "- Six Sigma Green Belt (Manufacturing) - R for Data Science (Datacamp)\n- Advanced Excel for Business Analytics - AWS Academy Machine Learning Foundations\n- Python for Data Analysis (Coursera)",
+    "volunteer": "Safety Patrol, La Martiniere Calcutta\nCoordinated drills and safety procedures with a 40-member team, ensuring compliance during events.\nBhumi India\nOrganized learning and activity sessions for 200+ children, contributing to community engagement."
+  },
+  "structured": {
+    "projects": [
+      {
+        "name": "Manufacturing Data Quality Automation Jan 2023 – May 2023",
+        "dates": "Jan 2023 – May 2023",
+        "technologies": "Python (Pandas), Excel, SQL",
+        "bullets": [
+          "Built pipelines to clean and preprocess 100,000+ rows of manufacturing quality inspection data.",
+          "Automated anomaly detection in production batches, reducing manual inspection time by 45%.",
+          "Delivered insights on recurring defects that improved assembly line efficiency by 12%."
+        ]
+      },
+      {
+        "name": "Automotive Production Data Analysis Aug 2022 – Dec 2022",
+        "dates": "Aug 2022 – Dec 2022",
+        "technologies": "R, Python, Excel, Power BI",
+        "bullets": [
+          "Analyzed 50,000+ automotive test records to identify correlations between design parameters and failures.",
+          "Designed dashboards to present KPIs to stakeholders including yield rate, downtime, and defect frequency.",
+          "Recommended process improvements that decreased defect rate by 8%."
+        ]
+      },
+      {
+        "name": "Production Workflow Optimization Jan 2022 – Apr 2022",
+        "dates": "Jan 2022 – Apr 2022",
+        "technologies": "Excel (Pivot Tables), Python",
+        "bullets": [
+          "Modeled relationships among entities (machines, processes, outputs) using production log data.",
+          "Streamlined reporting workflows by automating Excel-based summaries for daily production meetings."
+        ]
+      }
+    ],
+    "experience": [
+      {
+        "role": "Tata Motors",
+        "company": "Manufacturing",
+        "dates": "May 2022 – July 2022",
+        "bullets": [
+          "Worked on cleaning and analyzing engine assembly data to identify inefficiencies in the production line.",
+          "Built Excel dashboards for real-time defect monitoring, improving response time by 30%."
+        ]
+      },
+      {
+        "role": "Metalco",
+        "company": "Process Data",
+        "dates": "Jan 2022 – Mar 2022",
+        "bullets": [
+          "Automated monthly reporting of 500+ production documents, reducing manual work by 70%.",
+          "Collaborated with engineers and data scientists to ensure business-ready insights from plant data.",
+          "Society of Automotive Engineers (SAE) – Data Lead Sep 2021 – May 2023"
+        ]
+      }
+    ]
+  },
+  "raw_text": "SHUBAM SARAWAGI\n+91 9163615663 ⋄ Kolkata, West Bengal\nsarawagishubam@gmail.com ⋄ LinkedIn Profile ⋄ GitHub Profile\nEDUCATION\nSRM Institute of Science & Technology, Chennai, Tamil Nadu July 2019 – May 2023\nB-Tech in Mechanical Engineering with Minor in Manufacturing Systems\n• GPA: 9.1/10\n• Relevant Coursework: Manufacturing Processes, Production Systems, Data Analytics in Manufacturing, Automotive Systems\nSKILLS\nManufacturing Knowledge Production Systems, Automotive Engineering, Process Optimization\nData Analysis Data Cleaning, Data Exploration, Business Value Extraction\nLanguages Python (Pandas, NumPy, Matplotlib), R, SQL\nTools Excel (Advanced), MySQL, Power BI\nCollaboration Worked with ML Engineers, Data Scientists, Product Managers\nSoft Skills Problem Solving, Communication, Teamwork\nPROJECTS\nManufacturing Data Quality Automation Jan 2023 – May 2023\nTechnologies: Python (Pandas), Excel, SQL\n• Built pipelines to clean and preprocess 100,000+ rows of manufacturing quality inspection data.\n• Automated anomaly detection in production batches, reducing manual inspection time by 45%.\n• Delivered insights on recurring defects that improved assembly line efficiency by 12%.\nAutomotive Production Data Analysis Aug 2022 – Dec 2022\nTechnologies: R, Python, Excel, Power BI\n• Analyzed 50,000+ automotive test records to identify correlations between design parameters and failures.\n• Designed dashboards to present KPIs to stakeholders including yield rate, downtime, and defect frequency.\n• Recommended process improvements that decreased defect rate by 8%.\nProduction Workflow Optimization Jan 2022 – Apr 2022\nTechnologies: Excel (Pivot Tables), Python\n• Modeled relationships among entities (machines, processes, outputs) using production log data.\n• Streamlined reporting workflows by automating Excel-based summaries for daily production meetings.\nEXPERIENCE\nTata Motors – Manufacturing Data Intern May 2022 – July 2022\n• Worked on cleaning and analyzing engine assembly data to identify inefficiencies in the production line.\n• Built Excel dashboards for real-time defect monitoring, improving response time by 30%.\nMetalco – Process Data Analyst Intern Jan 2022 – Mar 2022\n• Automated monthly reporting of 500+ production documents, reducing manual work by 70%.\n• Collaborated with engineers and data scientists to ensure business-ready insights from plant data.\nCLUBS & ACTIVITIES\nSociety of Automotive Engineers (SAE) – Data Lead Sep 2021 – May 2023\n• Analyzed performance data of SAE competition vehicles, correlating sensor data with test outcomes.\n• Presented insights to design and production teams, enabling data-driven design iterations.\nCERTIFICATES\n- Six Sigma Green Belt (Manufacturing) - R for Data Science (Datacamp)\n- Advanced Excel for Business Analytics - AWS Academy Machine Learning Foundations\n- Python for Data Analysis (Coursera)\nVOLUNTEERING\nSafety Patrol, La Martiniere Calcutta\nCoordinated drills and safety procedures with a 40-member team, ensuring compliance during events.\nBhumi India\nOrganized learning and activity sessions for 200+ children, contributing to community engagement."
+}

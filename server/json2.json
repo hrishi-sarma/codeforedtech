@@ -1,0 +1,181 @@
+{
+  "header": {
+    "name": "SHUBAM SARAWAGI",
+    "title": ""
+  },
+  "contact": {
+    "phone": "+919163615663",
+    "email": "sarawagishubam@gmail.com",
+    "location": "Kolkata, West Bengal",
+    "linkedin": "",
+    "github": "",
+    "website": ""
+  },
+  "summary": "",
+  "education": [
+    {
+      "institution": "SRM Institute of Science & Technology",
+      "degree": "B-Tech in Mechanical Engineering with Minor in Manufacturing Systems",
+      "field": "Mechanical Engineering",
+      "graduation_date": "May 2023",
+      "gpa": "9.1/10",
+      "location": "Chennai, Tamil Nadu"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Tata Motors",
+      "position": "Manufacturing Data Intern",
+      "location": "",
+      "start_date": "May 2022",
+      "end_date": "July 2022",
+      "responsibilities": [
+        "Worked on cleaning and analyzing engine assembly data to identify inefficiencies in the production line.",
+        "Built Excel dashboards for real-time defect monitoring, improving response time by 30%."
+      ]
+    },
+    {
+      "company": "Metalco",
+      "position": "Process Data Analyst Intern",
+      "location": "",
+      "start_date": "Jan 2022",
+      "end_date": "Mar 2022",
+      "responsibilities": [
+        "Automated monthly reporting of 500+ production documents, reducing manual work by 70%.",
+        "Collaborated with engineers and data scientists to ensure business-ready insights from plant data."
+      ]
+    },
+    {
+      "company": "Society of Automotive Engineers (SAE)",
+      "position": "Data Lead",
+      "location": "",
+      "start_date": "Sep 2021",
+      "end_date": "May 2023",
+      "responsibilities": [
+        "Analyzed performance data of SAE competition vehicles, correlating sensor data with test outcomes.",
+        "Presented insights to design and production teams, enabling data-driven design iterations."
+      ]
+    }
+  ],
+  "projects": [
+    {
+      "name": "Manufacturing Data Quality Automation",
+      "description": "",
+      "technologies": [
+        "Python",
+        "Pandas",
+        "Excel",
+        "SQL"
+      ],
+      "start_date": "Jan 2023",
+      "end_date": "May 2023",
+      "achievements": [
+        "Built pipelines to clean and preprocess 100,000+ rows of manufacturing quality inspection data.",
+        "Automated anomaly detection in production batches, reducing manual inspection time by 45%.",
+        "Delivered insights on recurring defects that improved assembly line efficiency by 12%."
+      ]
+    },
+    {
+      "name": "Automotive Production Data Analysis",
+      "description": "",
+      "technologies": [
+        "R",
+        "Python",
+        "Excel",
+        "Power BI"
+      ],
+      "start_date": "Aug 2022",
+      "end_date": "Dec 2022",
+      "achievements": [
+        "Analyzed 50,000+ automotive test records to identify correlations between design parameters and failures.",
+        "Designed dashboards to present KPIs to stakeholders including yield rate, downtime, and defect frequency.",
+        "Recommended process improvements that decreased defect rate by 8%."
+      ]
+    },
+    {
+      "name": "Production Workflow Optimization",
+      "description": "",
+      "technologies": [
+        "Excel",
+        "Python"
+      ],
+      "start_date": "Jan 2022",
+      "end_date": "Apr 2022",
+      "achievements": [
+        "Modeled relationships among entities (machines, processes, outputs) using production log data.",
+        "Streamlined reporting workflows by automating Excel-based summaries for daily production meetings."
+      ]
+    }
+  ],
+  "skills": {
+    "programming_languages": [
+      "Python",
+      "R",
+      "SQL"
+    ],
+    "frameworks_tools": [
+      "Excel",
+      "MySQL",
+      "Power BI"
+    ],
+    "domains": [
+      "Manufacturing Knowledge",
+      "Production Systems",
+      "Automotive Engineering",
+      "Process Optimization",
+      "Data Analysis",
+      "Data Cleaning",
+      "Data Exploration",
+      "Business Value Extraction"
+    ],
+    "libraries": [
+      "Pandas",
+      "NumPy",
+      "Matplotlib"
+    ],
+    "soft_skills": [
+      "Problem Solving",
+      "Communication",
+      "Teamwork"
+    ]
+  },
+  "awards": [
+    {
+      "name": "Six Sigma Green Belt (Manufacturing)",
+      "issuer": "Six Sigma",
+      "date": ""
+    },
+    {
+      "name": "R for Data Science",
+      "issuer": "Datacamp",
+      "date": ""
+    },
+    {
+      "name": "Advanced Excel for Business Analytics",
+      "issuer": "Unknown",
+      "date": ""
+    },
+    {
+      "name": "AWS Academy Machine Learning Foundations",
+      "issuer": "AWS Academy",
+      "date": ""
+    },
+    {
+      "name": "Python for Data Analysis",
+      "issuer": "Coursera",
+      "date": ""
+    }
+  ],
+  "volunteering": [
+    {
+      "organization": "La Martiniere Calcutta",
+      "role": "Safety Patrol",
+      "description": "Coordinated drills and safety procedures with a 40-member team, ensuring compliance during events."
+    },
+    {
+      "organization": "Bhumi India",
+      "role": "Volunteer",
+      "description": "Organized learning and activity sessions for 200+ children, contributing to community engagement."
+    }
+  ]
+}
