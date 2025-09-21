@@ -1,5 +1,3 @@
-
-```markdown
 # Formula-4-1: Resume–Job Matching Platform
 
 This project is a full-stack application designed to parse resumes and job descriptions, compare them using embeddings & similarity metrics, and provide structured outputs with an admin dashboard.
@@ -9,45 +7,44 @@ This project is a full-stack application designed to parse resumes and job descr
 ## 📂 Project Structure
 
 ```
-
 edu/
-│── public/
-│── server/                  # Python backend (FastAPI services)
-│   │── .env
-│   │── attempt2.py
-│   │── cosinesim.py
-│   │── criteria\_checker.py
-│   │── detailed\_json.py
-│   │── embed.py
-│   │── jd\_parser\_out.py     # JD parsing service
-│   │── parsePDF.py          # Resume parsing service
-│   │── structure\_parser.py
-│   │── topK.py
-│   │── requirements.txt     # Python dependencies
+├── public/
+├── server/                  # Python backend (FastAPI services)
+│   ├── .env
+│   ├── attempt2.py
+│   ├── cosinesim.py
+│   ├── criteria_checker.py
+│   ├── detailed_json.py
+│   ├── embed.py
+│   ├── jd_parser_out.py     # JD parsing service
+│   ├── parsePDF.py          # Resume parsing service
+│   ├── structure_parser.py
+│   ├── topK.py
+│   └── requirements.txt     # Python dependencies
 │
-│── src/                     # Next.js (React + TypeScript) frontend
-│   │── app/
-│       │── Admindash/page.tsx
-│       │── AdminJobs/\[id]/page.tsx
-│       │── Home/page.tsx
-│       │── Jobs/\[id]/page.tsx
-│       │── Jobs/page.tsx
-│       │── Tips/page.tsx
+├── src/                     # Next.js (React + TypeScript) frontend
+│   └── app/
+│       ├── Admindash/page.tsx
+│       ├── AdminJobs/[id]/page.tsx
+│       ├── Home/page.tsx
+│       ├── Jobs/[id]/page.tsx
+│       ├── Jobs/page.tsx
+│       └── Tips/page.tsx
 │
-│── package.json
-│── globals.css
-
-````
+├── package.json
+└── globals.css
+```
 
 ---
 
 ## ⚙️ Setup Instructions
 
 ### 1️⃣ Clone the repository
+
 ```bash
 git clone <repo-url>
 cd edu
-````
+```
 
 ### 2️⃣ Backend Setup (Python - FastAPI)
 
@@ -107,13 +104,11 @@ Use this to access the **Admin Dashboard**.
 ## 🚀 Workflow
 
 1. **Backend**
-
    * `parsePDF.py` → Parses resumes and extracts structured data.
    * `jd_parser_out.py` → Parses job descriptions and extracts requirements.
    * `embed.py`, `cosinesim.py`, `criteria_checker.py` → Handle embeddings, similarity, and matching logic.
 
 2. **Frontend**
-
    * Built using Next.js (App Router).
    * Provides dashboards for **Admin** and **Users** to manage resumes, jobs, and match results.
 
@@ -134,6 +129,3 @@ Use this to access the **Admin Dashboard**.
 * Update `.env` file in `server/` with API keys (if required).
 
 ---
-
-```
-
